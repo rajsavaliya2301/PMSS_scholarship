@@ -22,7 +22,7 @@ const Home = () => {
 
     const neviget = useNavigate();
     const hendelbnev = () =>{
-        neviget('/institudeportal')
+        neviget('/officer')
     }
 const arr = [img1, img2, img3, img4, img5, img6, img7, img8, img9];
 
@@ -58,12 +58,12 @@ const arr = [img1, img2, img3, img4, img5, img6, img7, img8, img9];
         <a href='https://www.india.gov.in/' className='hidden sm:block'>Government of India</a><p className='font-bold '><span className='font-thin '> DEPARTMENT OF </span>Ex-servicemen Welfare</p><a href='https://www.mod.gov.in/' className='hidden sm:block'>Ministry of Defence</a>
     </div>
     <Header/>
-    <div className='hidden sm:flex h-[2.6rem] bg-gray-500 justify-end content-center'>
-        <FaCircleInfo className='h-[1.8rem] w-[1.6rem] mr-[0.8rem] mt-[0.4rem]'/>
-        <GrHelpBook className='h-[1.8rem] w-[1.6rem] mr-[0.8rem] mt-[0.4rem]'/> 
+    <div className='hidden sm:flex h-[2.6rem]  justify-end content-center'>
+        <FaCircleInfo className='h-[1.8rem] w-[1.8rem] mr-[0.8rem] mt-[0.4rem]  hover:text-white hover:bg-black rounded-full '/>
+        <GrHelpBook className='h-[1.8rem] w-[1.8rem] mr-[0.8rem] mt-[0.4rem]  '/> 
         <button
             onClick={hendelbnev}
-        className='flex pr-2 pl-2 text-lg font-bold mr-[0.8rem] pt-[0.2rem] border border-black border-2 hover:text-gray-300 hover:bg-black rounded'>Login<CiLogin className='block h-[1.8rem] w-[1.5rem]  mt-[0.15rem] text-bold'/></button>
+        className='flex pr-2 pl-2 text-lg font-bold mr-[0.8rem] pt-[0.2rem] border border-black border-2 hover:text-white hover:bg-black rounded'>Login<CiLogin className='block h-[1.8rem] w-[1.5rem]  mt-[0.15rem] text-bold'/></button>
     </div>
     <div className='pr-[10%] pl-[10%] mt-[1%] mb-[2%]'>
         <h2 className='font-bold  text-xl pb-[1%]'>PM Scholarship Scheme (PMSS)</h2>
