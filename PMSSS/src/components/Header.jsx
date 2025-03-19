@@ -1,7 +1,8 @@
 import React from 'react'
 import Astambh from '/pngegg.png'
 import Navlogo from './Navlogo'
-
+import g20 from '/G20_logo.jpg'
+import swachta from '/swach-bharat.png'
 
 
 
@@ -23,8 +24,8 @@ const Header = () => {
               <Navlogo className='h-[1rem] sm:hidden '/>
         </div>
         <div className='flex justify-center  mt-[0.8rem] sm:mt-[1.1rem] '>
-             <img src="https://desw.gov.in/sites/all/themes/cmf/images/G20_logo.jpg" alt="G20" className='h-[1.5rem] sm:h-[3rem]'></img>
-             <img src="https://desw.gov.in/sites/all/themes/cmf/images/swach-bharat.png" alt="Swach Bharat" className='h-[1.5rem] sm:h-[3rem]'></img>
+             <img src={g20} alt="G20" className='h-[1.5rem] sm:h-[3rem]'></img>
+             <img src={swachta} alt="Swach Bharat" className='h-[1.5rem] sm:h-[3rem]'></img>
         </div>
     </div>
     </>
