@@ -9,6 +9,7 @@ import Studentdocument from './components/Studentdocument'
 import Studentsclrecodes from './components/Studentsclrecodes'
 import Instituteportal from './components/Instituteportal'
 import Institutestudent from './components/Institutestudent'
+import  Officerportal  from './components/Officerportal'
 
 
 const App = () => {
@@ -24,6 +25,7 @@ const App = () => {
         <Route path='/student/recodes' element={<Studentsclrecodes/>}/>
         <Route path='/institudeportal' element={<Instituteportal/>}/>
         <Route path='/institudeportal/stuentprofile' element={<Institutestudent/>}/>
+        <Route path='/officer' element={<Officerportal/>}/>
       </Routes> 
     </BrowserRouter>
   )
