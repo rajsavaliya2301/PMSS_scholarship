@@ -10,6 +10,7 @@ import Studentsclrecodes from './components/Studentsclrecodes'
 import Instituteportal from './components/Instituteportal'
 import Institutestudent from './components/Institutestudent'
 import  Officerportal  from './components/Officerportal'
+import Studentlogin from './components/Studentlogin'
 
 
 const App = () => {
@@ -17,6 +18,7 @@ const App = () => {
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<Home/>} />
+        <Route path="/signinup" element={<Studentlogin/>} />
         <Route path="/student" element={<Studentdashboard/>} />
         <Route path='/student/profile' element={<Studentprofile/>}/>
         <Route path='/student/apply' element={<Applysclorship/>}/>
