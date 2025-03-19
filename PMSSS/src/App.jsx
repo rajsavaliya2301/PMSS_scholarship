@@ -7,6 +7,8 @@ import Applysclorship from './components/Applysclorship'
 import Editprofile from './components/Editprofile'
 import Studentdocument from './components/Studentdocument'
 import Studentsclrecodes from './components/Studentsclrecodes'
+import Instituteportal from './components/Instituteportal'
+import Institutestudent from './components/Institutestudent'
 
 
 const App = () => {
@@ -20,6 +22,8 @@ const App = () => {
         <Route path='/student/edit' element={<Editprofile/>}/>
         <Route path='/student/documents' element={<Studentdocument/>}/>
         <Route path='/student/recodes' element={<Studentsclrecodes/>}/>
+        <Route path='/institudeportal' element={<Instituteportal/>}/>
+        <Route path='/institudeportal/stuentprofile' element={<Institutestudent/>}/>
       </Routes> 
     </BrowserRouter>
   )
