@@ -11,6 +11,8 @@ import Instituteportal from './components/Instituteportal'
 import Institutestudent from './components/Institutestudent'
 import  Officerportal  from './components/Officerportal'
 import Studentlogin from './components/Studentlogin'
+import Sitemap from './components/Sitemap'
+import Info from './components/Info'
 
 
 const App = () => {
@@ -20,6 +22,8 @@ const App = () => {
         <Route path="/" element={<Home/>} />
         <Route path="/signinup" element={<Studentlogin/>} />
         <Route path="/student" element={<Studentdashboard/>} />
+        <Route path="/site-map" element={<Sitemap/>} />
+        <Route path="/info" element={<Info/>} />
         <Route path='/student/profile' element={<Studentprofile/>}/>
         <Route path='/student/apply' element={<Applysclorship/>}/>
         <Route path='/student/edit' element={<Editprofile/>}/>
