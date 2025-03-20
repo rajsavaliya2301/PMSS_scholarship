@@ -122,9 +122,9 @@ const Institutestudent = () => {
                     
                 </tbody>
         </table>
-        <div className='flex justify-between'>
-          <button className='mt-10 rounded-lg font-bold px-4 py-1 bg-gray-600 text-white hover:text-[red]'>Error</button>
-          <button className='mt-10 rounded-lg font-bold px-4 py-1 bg-gray-600 text-white hover:text-[green]'>Approve</button>
+        <div className='flex justify-center'>
+          <button className='m-5 rounded-lg font-bold px-4 py-2 bg-gray-600 text-white hover:text-[red]'>Error</button>
+          <button className='m-5 rounded-lg font-bold px-4 py-2 bg-gray-600 text-white hover:text-[green]'>Approve</button>
         </div>
       </div>
       <Footer/>
