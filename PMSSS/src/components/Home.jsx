@@ -58,7 +58,7 @@ const arr = [img1, img2, img3, img4, img5, img6, img7, img8, img9];
         <a href='https://www.india.gov.in/' className='hidden sm:block'>Government of India</a><p className='font-bold '><span className='font-thin '> DEPARTMENT OF </span>Ex-servicemen Welfare</p><a href='https://www.mod.gov.in/' className='hidden sm:block'>Ministry of Defence</a>
     </div>
     <Header/>
-    <div className='hidden sm:flex h-[2.6rem]  justify-end content-center'>
+    <div className='hidden sm:flex h-[2.6rem]  justify-end content-center mt-2'>
         <FaCircleInfo className='h-[1.8rem] w-[1.8rem] mr-[0.8rem] mt-[0.4rem]  hover:text-white hover:bg-black rounded-full '/>
         <GrHelpBook className='h-[1.8rem] w-[1.8rem] mr-[0.8rem] mt-[0.4rem]  '/> 
         <button
