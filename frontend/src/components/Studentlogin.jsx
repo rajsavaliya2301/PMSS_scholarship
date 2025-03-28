@@ -11,7 +11,12 @@ const Studentlogin = () => {
   const [name, setName] = useState('');
   const [phone, setPhone] = useState('');
   const [dob, setDob] = useState('');
+  const [loading, setLoading] = useState(false);
+  const [forget, setForget] = useState(false);
   const navigate = useNavigate();
+
+
+
 
   useEffect(() => {
     const token = localStorage.getItem("token");
@@ -52,6 +57,7 @@ const Studentlogin = () => {
   };
 
   const handleSignup = async (e) => {
+    setLoading(true)
     e.preventDefault();
     const formData = { name, email, phone, dob };
 
@@ -65,7 +71,7 @@ const Studentlogin = () => {
         });
 
         if (res.status === 200) {
-          alert("Signup successful! Please login.");
+          alert("Signup successful! Please login.ID and Password sent to your email");
           handleSwitch(); // Switch to the login panel
         } else {
           alert(res.data.message || "Signup failed");
@@ -84,7 +90,7 @@ const Studentlogin = () => {
         studentId: studentId,
         password: password,
       });
-  
+
       if (res.status === 200) {
         localStorage.setItem("token", res.data.token);  // Store JWT token
         localStorage.setItem("role", res.data.role);  // Store role
@@ -98,8 +104,30 @@ const Studentlogin = () => {
       alert("Login Error: " + err.response?.data?.message || err.message);
     }
   };
-  
-  
+  const sendPassword = async () => {
+    setForget(true)
+    const studentId = localStorage.getItem('studentId')
+    try {
+      const response = await axios.post("http://localhost:5000/api/auth/sendpassword", {
+        studentId,
+      });
+
+      // Handle success response
+      if (response.status === 200) {
+        console.log("Password Email sent successfully:", response.data.message);
+        navigate('/forgetpass')
+      }
+    } catch (error) {
+      // Handle error response
+      if (error.response) {
+        console.error("Error:", error.response.data.message);
+      } else {
+        console.error("Error in sending password:", error.message);
+      }
+    }
+  };
+
+
 
   return (
     <div className="flex justify-center items-center min-h-screen p">
@@ -111,10 +139,10 @@ const Studentlogin = () => {
               <h1 className="text-3xl font-bold">Create Account</h1>
             </div>
             <div className="mb-3">
-              <input 
-                name="name" 
-                type="text" 
-                placeholder="Name as per Marksheet" 
+              <input
+                name="name"
+                type="text"
+                placeholder="Name as per Marksheet"
                 className="w-full p-4 bg-gray-100 rounded-lg text-lg"
                 value={name}
                 onChange={(e) => setName(e.target.value)}
@@ -123,11 +151,11 @@ const Studentlogin = () => {
             {errors.name && <p className="text-red-500 text-sm mb-2">{errors.name}</p>}
 
             <div className="mb-3">
-              <input 
-                name="email" 
-                type="email" 
-                placeholder="Email" 
-                className="w-full p-4 bg-gray-100 rounded-lg text-lg" 
+              <input
+                name="email"
+                type="email"
+                placeholder="Email must (@gmail.com)"
+                className="w-full p-4 bg-gray-100 rounded-lg text-lg"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
               />
@@ -135,12 +163,12 @@ const Studentlogin = () => {
             {errors.email && <p className="text-red-500 text-sm mb-2">{errors.email}</p>}
 
             <div className="mb-3">
-              <input 
-                name="phone" 
-                type="tel" 
-                pattern="[6-9]\d{9}" 
-                title="Enter a valid 10-digit mobile number starting with 6-9"  
-                placeholder="Mobile Number" 
+              <input
+                name="phone"
+                type="tel"
+                pattern="[6-9]\d{9}"
+                title="Enter a valid 10-digit mobile number starting with 6-9"
+                placeholder="Mobile Number"
                 className="w-full p-4 bg-gray-100 rounded-lg text-lg"
                 value={phone}
                 onChange={(e) => setPhone(e.target.value)}
@@ -148,11 +176,11 @@ const Studentlogin = () => {
             </div>
 
             <div className="mb-3">
-              <input 
-                name="dob" 
-                type="date" 
-                placeholder="Birth Date" 
-                className="w-full p-4 bg-gray-100 rounded-lg text-lg" 
+              <input
+                name="dob"
+                type="date"
+                placeholder="Birth Date"
+                className="w-full p-4 bg-gray-100 rounded-lg text-lg"
                 value={dob}
                 onChange={(e) => setDob(e.target.value)}
               />
@@ -160,7 +188,7 @@ const Studentlogin = () => {
             {errors.dob && <p className="text-red-500 text-sm mb-2">{errors.dob}</p>}
 
             <div className="mb-3 flex justify-center">
-              <button className="border border-white text-white bg-gray-700 w-1/2 py-3 rounded-lg text-lg font-semibold hover:text-xl hover:border-white hover:bg-gray-400 hover:text-black transition">Register</button>
+              <button className={`border border-white text-white bg-gray-700 w-1/2 py-3 rounded-lg text-lg font-semibold hover:text-xl hover:border-white hover:bg-gray-400 hover:text-black transition ${loading ? 'hover:cursor-not-allowed' : ''}`} disabled={loading}>Register</button>
             </div>
           </form>
         </div>
@@ -172,23 +200,23 @@ const Studentlogin = () => {
               <h1 className="text-3xl font-bold">Login</h1>
             </div>
             <div className="mb-3">
-              <input 
-                name="id" 
-                type="text" 
-                pattern="^PMSS@\d{6}$" 
-                title="Enter a valid ID" 
-                placeholder="ID" 
-                className="w-full p-4 bg-gray-100 rounded-lg text-lg" 
+              <input
+                name="id"
+                type="text"
+                pattern="^PMSS@\d{6}$"
+                title="Enter a valid ID"
+                placeholder="ID"
+                className="w-full p-4 bg-gray-100 rounded-lg text-lg"
                 value={studentId}
                 onChange={(e) => setStudentId(e.target.value)}
               />
             </div>
             <div className="mb-3">
-              <input 
-                name="pass" 
-                type="password" 
-                placeholder="Password" 
-                className="w-full p-4 bg-gray-100 rounded-lg text-lg" 
+              <input
+                name="pass"
+                type="password"
+                placeholder="Password"
+                className="w-full p-4 bg-gray-100 rounded-lg text-lg"
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
               />
@@ -197,11 +225,9 @@ const Studentlogin = () => {
 
             <div className="mb-5 flex justify-between text-gray-600 text-sm">
               <div>
-                <input type="checkbox" id="remember" className="mr-2" />
-                <label htmlFor="remember">Remember me</label>
-              </div>
-              <div>
-                <a href="#" className="hover:underline">Forgot password?</a>
+                <p className={`hover:underline ${forget ?"hover:cursor-not-allowed":" "} `} disabled={forget} onClick={sendPassword}>
+                  Forgot password?
+                </p>
               </div>
             </div>
 
