@@ -4,7 +4,7 @@ const sendEmail = async (sendpass) => {
   try {
     // Define email credentials locally
     const emailUser = "23it106@charusat.edu.in";  // Replace with your Gmail address
-    const emailPass = "eevkkqwmzpcsmivq";   // Replace with your Gmail password (use an App Password if 2FA is enabled)
+    const emailPass = "";   // Replace with your Gmail password (use an App Password if 2FA is enabled)
 
     // Create email transporter
     const transporter = nodemailer.createTransport({
