@@ -1,32 +1,28 @@
 const nodemailer = require("nodemailer");
-require("dotenv").config();
 
-const sendEmail = async (email, studentId, password) => {
+const sendEmail = async (sendpass) => {
   try {
+    // Define email credentials locally
+    const emailUser = "23it106@charusat.edu.in";  // Replace with your Gmail address
+    const emailPass = "";   // Replace with your Gmail password (use an App Password if 2FA is enabled)
+
+    // Create email transporter
     const transporter = nodemailer.createTransport({
-      host: "smtp.office365.com",
-      port: 587,
-      secure: false,
+      service: "gmail",                  // Use Gmail SMTP service
       auth: {
-        user: process.env.EMAIL_USER,
-        pass: process.env.EMAIL_PASS,
+        user: emailUser,                 // Your Gmail address
+        pass: emailPass,                 // Your Gmail password (or App Password if using 2FA)
       },
     });
+    
 
-    const mailOptions = {
-      from: process.env.EMAIL_USER,
-      to: email,
-      subject: "Your PMSS Login Credentials",
-      html: `<h2>Welcome to PMSS</h2>
-             <p>Your Student ID: <b>${studentId}</b></p>
-             <p>Your Password: <b>${password}</b></p>
-             <p>Please keep this information safe.</p>`,
-    };
-
-    const info = await transporter.sendMail(mailOptions);
-    console.log(`✅ Email Sent: ${info.messageId}`);
+    // Send email
+    const info = await transporter.sendMail(sendpass);
+    console.log(`Email Sent: ${info.messageId}`);  // Log success
+    return true; // Return success status
   } catch (error) {
-    console.error("❌ Error Sending Email:", error.message);
+    console.error("Error Sending Email:", error.message);  // Log error
+    return false; // Return failure status
   }
 };
 

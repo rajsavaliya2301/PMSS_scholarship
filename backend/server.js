@@ -2,12 +2,13 @@ const express = require("express");
 const mongoose = require("mongoose");
 const cors = require("cors");
 require("dotenv").config();
+
+
 const studentDocumentsRoutes = require('./routes/studentDocuments');
-
-
 const authRoutes = require("./routes/auth");
 const studentRoutes = require("./routes/student");
 const editstudent= require("./routes/profileUpdate")
+const AppStudent=require('./routes/apply')
 
 const app = express();
 
@@ -30,6 +31,7 @@ app.use("/api/auth", authRoutes);
 app.use("/api/student", studentRoutes);
 app.use("/api", editstudent);
 app.use('/api/student-documents', studentDocumentsRoutes);
+app.use('/api/student-apply',AppStudent)
 
 
 const PORT = process.env.PORT || 5000;

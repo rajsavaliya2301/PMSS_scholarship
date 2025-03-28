@@ -3,19 +3,20 @@ import Astambh from '/pngegg.png'
 import Navlogo from './Navlogo'
 import g20 from '/G20_logo.jpg'
 import swachta from '/swach-bharat.png'
-
+import { useNavigate } from 'react-router-dom'
 
 
 const Header = () => {
+  const navigate = useNavigate()
     
   return (
     <>
     <div className='flex justify-center border-b-[0.2rem] shadow-md pb-[0.3rem] sm:pb-[0.6rem] pt-[0.2rem] sm:pt-[0.4rem]'>
         <div className='h-[3rem] w-[15%] sm:w-[10%] flex justify-center sm:h-[5rem] '>
-            <img src={Astambh} alt="Image" className='h-[3rem] sm:h-[5rem] ' />
+            <img src={Astambh} alt="Image" className='h-[3rem] sm:h-[5rem] ' onClick={()=>{navigate("/")}}/>
         </div>
         <div className='w-[50%] sm:w-[60%] content-center'>
-            <h1 className='text-lg sm:text-4xl font-bold'>PMSS</h1>
+            <h1 className='text-lg sm:text-4xl font-bold hover:underline'onClick={()=>{navigate("/")}}>PMSS</h1>
             <div>
                 <p className='text-[0.6rem] sm:text-lg'>Academic Year 2025-2026</p>
             </div>

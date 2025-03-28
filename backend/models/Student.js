@@ -8,7 +8,8 @@ const StudentSchema = new mongoose.Schema({
   dob: { type: Date, required: true },
   password: { type: String, required: true },
   createdAt: { type: Date, default: Date.now },
-  role:{type: String,}
+  ltoken:{type:String},
+  role:{type: String,},
 });
 
 module.exports = mongoose.model("Student", StudentSchema);

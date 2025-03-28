@@ -5,6 +5,7 @@ import Footer from "./Footer";
 
 const siteMapData = [
   { title: "Home", path: "/" },
+  { title: "Login / Signup", path: "/signinup" },
   {
     title: "Student Portal",
     children: [
@@ -15,25 +16,12 @@ const siteMapData = [
           { title: "Apply Scholarship", path: "/student/apply" },
           { title: "Edit Profile", path: "/student/edit" },
           { title: "Documents", path: "/student/documents" },
-          { title: "Records", path: "/student/records" }
+          { title: "Records", path: "/student/recodes" },
+          { title: "Track", path: "/student/track" }
         ]
       }
     ]
   },
-  {
-    title: "Institute Portal",
-    children: [
-      {
-        title: "Dashboard",
-        children: [
-          { title: "Student Profile", path: "/institudeportal/studentprofile" }
-        ]
-      }
-    ]
-  },
-  { title: "Officer Portal", path: "/officer" },
-  { title: "Login / Signup", path: "/signinup" },
-  { title: "Sitemap", path: "/site-map" }
 ];
 
 const TreeNode = ({ node, level = 0 }) => {
@@ -73,7 +61,7 @@ const Sitemap = () => {
       <div className="bg-gray-100 min-h-screen py-10">
         <div className="max-w-4xl mx-auto bg-white shadow-md rounded-lg p-6">
           <h1 className="text-3xl font-bold text-gray-800 border-b pb-2 mb-4">
-            📜 PMSS Sitemap
+            PMSS Sitemap
           </h1>
           <div className=" text-gray-400 p-10 rounded-md shadow-lg font-mono">
             <p> Site-Map</p>

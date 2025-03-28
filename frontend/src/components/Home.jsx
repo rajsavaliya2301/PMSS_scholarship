@@ -61,7 +61,7 @@ const arr = [img1, img2, img3, img4, img5, img6, img7, img8, img9];
     <Header/>
     <div className='hidden sm:flex h-[2.6rem]  justify-end content-center'>
         <FaCircleInfo className='h-[1.8rem] w-[1.8rem] mr-[0.8rem] mt-[0.4rem]  hover:text-white hover:bg-black rounded-full 'onClick={() => neviget('/info')}/>
-        <GrAnnounce className='h-[1.8rem] w-[1.8rem] mr-[0.8rem] mt-[0.4rem]  '/> 
+        <GrAnnounce className='h-[1.8rem] w-[1.8rem] mr-[0.8rem] mt-[0.4rem]  'onClick={()=>neviget('/Announce')}/> 
         <FaSitemap className='h-[1.8rem] w-[1.8rem] mr-[0.8rem] mt-[0.4rem] 'onClick={() => neviget('/site-map')}/> 
         <button
             onClick={hendelbnev}
@@ -76,7 +76,7 @@ const arr = [img1, img2, img3, img4, img5, img6, img7, img8, img9];
         <p className='pb-[1.5%]'>The Scheme was introduced in 2006.<span className='font-bold'> Five thousand five hundred (5500) scholarships are being awarded annually under this scheme </span>. The amount of scholarships was Rs.2,000/- for boys and Rs.2,250/- for the girls per month and is paid annually. <span> This has now been increased to Rs.2,500/- per month for boys and Rs.3,000/- per month for girls w.e.f. FY 2019-20</span>. The payment is made through ECS into the bank account of the selected students. The scheme migrated from offline to online mode with effect from Academic Year 2016-17.</p>
     </div>
     <div className="flex justify-center mt-10 flex-wrap">
-      <h2 className='font-bold  text-xl pb-[1%]'>Total Student Who can Applyed for Scholarship</h2>
+      <h2 className='font-bold  text-xl pb-[1%]'>Total Student Who Applyed for Scholarship</h2>
     </div>
     <div className="flex justify-center mt-10 flex-wrap">
         <div className="text-center rounded-full shadow-md shadow-black  h-[12rem] sm:h-60 w-[12rem] sm:w-60 pt-8 m-[1rem]">
